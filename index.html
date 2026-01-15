@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Radio</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="My Radio">
+
+<style>
+body{background:#000;color:#fff;font-family:Arial;margin:0}
+header{text-align:center;padding:12px;background:#111}
+.station{background:#00ff99;color:#000;margin:10px;padding:14px;border-radius:10px;cursor:pointer}
+audio{width:95%;margin:10px}
+</style>
+</head>
+
+<body>
+<header><h2>🎧 My Radio</h2></header>
+
+<audio id="player" controls playsinline></audio>
+
+<div class="station" onclick="play('https://stream.live.vc.bbcmedia.co.uk/bbc_world_service')">
+BBC World Service
+</div>
+
+<div class="station" onclick="play('https://npr-ice.streamguys1.com/live.mp3')">
+NPR News
+</div>
+
+<div class="station" onclick="play('https://stream.radioparadise.com/mp3-192')">
+Radio Paradise
+</div>
+
+<script>
+const player=document.getElementById("player");
+function play(url){
+  player.src=url;
+  player.play().catch(()=>alert("Tap ▶ once"));
+}
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
+</body>
+</html>
