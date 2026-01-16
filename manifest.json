@@ -1,8 +1,9 @@
 {
-  "name": "My Radio",
-  "short_name": "Radio",
-  "start_url": ".",
+  "name": "Rediopro",
+  "short_name": "Rediopro",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#000000"
+  "theme_color": "#000000",
+  "icons": []
 }

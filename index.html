@@ -3,82 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My Radio – Category Wise</title>
-
+<title>Rediopro</title>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#000000">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
 <style>
-body{background:#000;color:#fff;font-family:Arial;margin:0;padding:10px;}
-h2{text-align:center;margin:10px;}
-.buttons{text-align:center;margin-bottom:10px;}
-button{margin:4px;padding:8px 12px;border:none;border-radius:6px;background:#00ff99;color:#000;font-weight:bold;}
-.station{background:#1a1a1a;color:#fff;margin:6px;padding:12px;border-radius:8px;cursor:pointer;border-left:6px solid #00ff99;}
-.station.news{border-color:#ff9800;}
-.station.music{border-color:#03a9f4;}
-audio{width:95%;margin:10px;}
+body{background:#0b0b0b;color:#fff;font-family:-apple-system,Arial;margin:0;padding:14px}
+h1{text-align:center;font-size:22px}
+nav{display:flex;justify-content:center;gap:8px;margin:12px 0}
+button{padding:10px 14px;border-radius:18px;border:none;background:#00ff99;font-weight:600}
+.section{display:none}
+.item{background:#1a1a1a;margin:10px 0;padding:14px;border-radius:14px}
+small{color:#aaa}
+audio{width:100%;margin:12px 0}
 </style>
 </head>
 <body>
 
-<h2>🎧 My Radio</h2>
+<h1>📻 Rediopro</h1>
 
-<div class="buttons">
-  <button onclick="filterStations('all')">All</button>
-  <button onclick="filterStations('news')">News</button>
-  <button onclick="filterStations('music')">Music</button>
-</div>
+<nav>
+<button onclick="show('radio')">Radio</button>
+<button onclick="show('podcasts')">Podcasts</button>
+</nav>
 
 <audio id="player" controls playsinline></audio>
 
-<div id="stations">
+<div id="radio" class="section">
+<h3>Live Radio</h3>
 
-<!-- NEWS -->
-<div class="station news" onclick="play('https://air.pc.cdn.bitgravity.com/air/live/pbaudio001/playlist.m3u8')" data-cat="news">All India Radio – Hindi News</div>
-<div class="station news" onclick="play('https://stream.live.vc.bbcmedia.co.uk/bbc_world_service')" data-cat="news">BBC World Service</div>
-<div class="station news" onclick="play('https://npr-ice.streamguys1.com/live.mp3')" data-cat="news">NPR News</div>
-<div class="station news" onclick="play('https://live-radio01.mediahubaustralia.com/2RNW/mp3')" data-cat="news">ABC Radio Australia – News</div>
-<div class="station news" onclick="play('https://dwstream4-lh.akamaihd.net/i/dwstream4_live@131329/master.m3u8')" data-cat="news">DW English</div>
-<div class="station news" onclick="play('https://cbcmp3.ic.llnwd.net/stream/cbcmp3_cbc_radio_one')" data-cat="news">CBC Radio One</div>
-<div class="station news" onclick="play('https://media-ice.musicradio.com/LBCMP3')" data-cat="news">LBC News</div>
+<div class="item" onclick="play('https://air.pc.cdn.bitgravity.com/air/live/pbaudio001/playlist.m3u8')">
+AIR Hindi News <small>(HI)</small>
+</div>
 
-<!-- MUSIC -->
-<div class="station music" onclick="play('https://stream.radioparadise.com/mp3-192')" data-cat="music">Radio Paradise</div>
-<div class="station music" onclick="play('https://ice1.somafm.com/groovesalad-128-mp3')" data-cat="music">SomaFM – Groove Salad</div>
-<div class="station music" onclick="play('https://ice1.somafm.com/poptron-128-mp3')" data-cat="music">SomaFM – PopTron</div>
-<div class="station music" onclick="play('https://ice1.somafm.com/dronezone-128-mp3')" data-cat="music">SomaFM – Drone Zone</div>
-<div class="station music" onclick="play('https://media-ice.musicradio.com/ClassicFMMP3')" data-cat="music">Classic FM UK</div>
-<div class="station music" onclick="play('https://live.wostreaming.net/direct/ppm-jazz24mp3-ibc1')" data-cat="music">Jazz24</div>
-<div class="station music" onclick="play('https://kexp-mp3-128.streamguys1.com/kexp128.mp3')" data-cat="music">KEXP</div>
-<div class="station music" onclick="play('https://stream.srg-ssr.ch/m/rsj/mp3_128')" data-cat="music">Radio Swiss Jazz</div>
-<div class="station music" onclick="play('https://smoothjazz.cdnstream1.com/2586_128.mp3')" data-cat="music">Smooth Jazz</div>
-<div class="station music" onclick="play('https://icecast.radiofrance.fr/fip-midfi.mp3')" data-cat="music">FIP (France)</div>
+<div class="item" onclick="play('https://stream.live.vc.bbcmedia.co.uk/bbc_world_service')">
+BBC World Service <small>(EN)</small>
+</div>
 
+<div class="item" onclick="play('https://npr-ice.streamguys1.com/live.mp3')">
+NPR News <small>(EN)</small>
+</div>
+
+<div class="item" onclick="play('https://stream.radioparadise.com/mp3-128')">
+Radio Paradise <small>(Music)</small>
+</div>
+
+<div class="item" onclick="play('https://ice1.somafm.com/groovesalad-128-mp3')">
+SomaFM – Groove Salad <small>(Music)</small>
+</div>
+</div>
+
+<div id="podcasts" class="section">
+<h3>Podcasts</h3>
+
+<div class="item" onclick="play('https://podcasts.files.bbci.co.uk/p02nq0gn.mp3')">
+BBC Global News Podcast <small>(EN)</small>
+</div>
+
+<div class="item" onclick="play('https://podcasts.files.bbci.co.uk/p0dtczf0.mp3')">
+BBC Hindi Podcast <small>(HI)</small>
+</div>
+
+<div class="item" onclick="play('https://chrt.fm/track/9E6E/traffic.megaphone.fm/NPR5968500061.mp3')">
+NPR News Now <small>(EN)</small>
+</div>
+
+<div class="item" onclick="play('https://traffic.megaphone.fm/PLANETMONEY.mp3')">
+Planet Money <small>(EN)</small>
+</div>
+
+<div class="item" onclick="play('https://traffic.megaphone.fm/HIDDENBRAIN.mp3')">
+Hidden Brain <small>(EN)</small>
+</div>
 </div>
 
 <script>
-const player = document.getElementById("player");
-
-function play(url){
-  player.src = url;
-  player.play().catch(()=>alert("Tap ▶ once to play"));
+const p=document.getElementById('player');
+function play(url){p.src=url;p.play().catch(()=>alert('Tap play ▶️'));}
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.style.display='none');
+document.getElementById(id).style.display='block';
 }
-
-function filterStations(cat){
-  document.querySelectorAll(".station").forEach(s=>{
-    if(cat==="all" || s.dataset.cat===cat){
-      s.style.display="block";
-    }else{
-      s.style.display="none";
-    }
-  });
-}
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js");
-}
+show('radio');
 </script>
 
 </body>
